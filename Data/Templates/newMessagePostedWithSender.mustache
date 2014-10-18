@@ -3,10 +3,7 @@
 		class="line {{lineClassAttributeRepresentation}} {{nicknameType}}"
 		id="line{{lineNumber}}"
 		nick="{{nickname}}">
-
 {{#nickname}}
-	<img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y"
-			 class="avatar" width="28" height"28" />
 {{/nickname}}
 
 {{#isRemoteMessage}}
@@ -16,24 +13,33 @@
 {{^isRemoteMessage}}
 	<p type="{{nicknameType}}">
 {{/isRemoteMessage}}
-
-		<span class="time">{{formattedTimestamp}} </span>
-		<span class="message" type="{{lineType}}">
+	<table width="100%">
+	<tr>
+			<td valign="top" width="1" style="white-space: nowrap;">
 			<span class="sender"
-				ondblclick="Textual.nicknameDoubleClicked()"
-				oncontextmenu="Textual.openStandardNicknameContextualMenu()"
 				type="{{nicknameType}}"
 				nick="{{nickname}}"
 				{{#nicknameColorHashingEnabled}}
 					colornumber="{{nicknameColorNumber}}"
-				{{/nicknameColorHashingEnabled}}>{{formattedNickname}}</span>
-					{{{formattedMessage}}}
-
+				{{/nicknameColorHashingEnabled}}>
+				{{formattedNickname}}
+			</span>
+			</td>
+			<td align="left">
+				<span class="time">{{formattedTimestamp}} </span>
+				{{{formattedMessage}}}
+			</td>
+		</span>
+	</tr>
+	<tr>
+			<td colspan="2" valign="top" align="center">
 					{{#inlineMediaAvailable}}
 						{{#inlineMediaArray}}
-							<a href="{{{anchorLink}}}" onclick="return Textual.hideInlineImage(this)"><img src="{{{imageURL}}}" class="inlineimage" style="max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
+							<a href="{{{anchorLink}}}"><img src="{{{imageURL}}}" class="inlineimage" style="max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
 						{{/inlineMediaArray}}
 					{{/inlineMediaAvailable}}
-		</span>
+			</td>
+	</tr>
+	</table>
 	</p>
 </div>

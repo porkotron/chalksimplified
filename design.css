@@ -1,5 +1,6 @@
 /* Basic Body Structure */
 
+/* @group Basic Body Structure */
 * {
 	margin: 0;
 	padding: 0;
@@ -35,7 +36,7 @@ body div#body_home {
 	-webkit-transition: opacity 0.8s linear;
 }
 
-body[type=channel] div#body_home {
+body[viewtype=channel] div#body_home {
 	max-height: 96.5%;
 }
 
@@ -67,7 +68,11 @@ body div#loading_screen {
 	-webkit-transition: opacity 0.8s linear;
 }
 
+/* @end */
+
 /* Time */
+
+/* @group Time */
 
 body[dir=ltr] .time {
 	width: auto;
@@ -86,7 +91,11 @@ body[dir=rtl] .time {
 	display: inline-block;
 }
 
+/* @end */
+
 /* Links */
+
+/* @group Links */
 
 a {
 	color: #0088CC;
@@ -98,7 +107,11 @@ a:hover {
 	text-decoration: underline;
 }
 
+/* @end */
+
 /* Topic Bar */
+
+/* @group Topic Bar */
 
 #topic_bar {
 	top: 0;
@@ -123,7 +136,11 @@ a:hover {
 	text-shadow: 1px 1px rgba(83, 86, 94, 0.7);
 }
 
+/* @end */
+
 /* Images */
+
+/* @group Images */
 
 body a img {
 	border: 0;
@@ -134,8 +151,11 @@ body img {
 	max-width: 95%;
 	margin: 15px 15px 12px 15px;
 }
+/* @end */
 
 /* Remember Line */
+
+/* @group Separating History */
 
 div[id=mark] {
 	position: relative;
@@ -160,6 +180,7 @@ body div[type*=notice] .sender {
 	color: #f00;
 	font-weight: 700;
 }
+/* @end */
 
 /* AVATARS */
 
@@ -173,8 +194,11 @@ body div[type*=notice] .sender {
 div[type=notice] .avatar {
 	display: none;
 }
+/* @end */
 
 /* PRIVMSG */
+
+/* @group PRIVMSG */
 
 body div.line {
 	overflow: hidden;
@@ -185,7 +209,7 @@ body div.line[type*=privmsg][highlight=true] p,
 body div.line[type*=action][highlight=true] p,
 body div.line[type*=action] p {
  	padding: 6px;
- 	margin-left: 51px !important;
+ 	margin-left: 10px !important;
  	text-indent: 0 !important;
 }
 
@@ -202,6 +226,7 @@ body div.line[type*=action] p {
 	border-radius: 4px;
 	border: 1px solid #DDD;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	text-align: left;
 }
 
 body div.line.myself p {
@@ -219,6 +244,8 @@ body div[type*=privmsg] p[type*=myself] .message {
 body div[type*=privmsg] .sender {
 	font-weight: 700;
 }
+
+/* @end */
 
 /* ACTION */
 

@@ -1,9 +1,7 @@
-A theme for [Textual](http://www.codeux.com/textual/) which shows Grove.io
-avatars if available.
-
-![Screen grab](https://raw.github.com/mrappleton/chalk/master/screen.png)
+A theme for [Textual 5](http://www.codeux.com/textual/).
+Simplified version of https://github.com/mrappleton/chalk/ without avatars.
 
 Install:
 ```
-$ git clone git@github.com:mrappleton/chalk.git "~/Library/Containers/com.codeux.irc.textual/Data/Library/Application Support/Textual IRC/Styles/Chalk"
+$ git clone https://github.com/porkotron/chalk.git "~/Library/Group Containers/8482Q6EPL6.com.codeux.irc.textual/Library/Application Support/Textual/Styles/Chalksimplified"
 ```

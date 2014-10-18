@@ -10,126 +10,22 @@ return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.origType,n=o.handler.apply(this,a
 }b.merge(f,s.childNodes),s.textContent="";while(s.firstChild)s.removeChild(s.firstChild);s=p.lastChild}else f.push(t.createTextNode(o));s&&p.removeChild(s),b.support.appendChecked||b.grep(Ft(f,"input"),qt),h=0;while(o=f[h++])if((!r||-1===b.inArray(o,r))&&(a=b.contains(o.ownerDocument,o),s=Ft(p.appendChild(o),"script"),a&&Bt(s),n)){i=0;while(o=s[i++])Et.test(o.type||"")&&n.push(o)}return s=null,p},cleanData:function(e,t){var n,r,o,a,s=0,u=b.expando,l=b.cache,d=b.support.deleteExpando,p=b.event.special;for(;null!=(n=e[s]);s++)if((t||b.acceptData(n))&&(o=n[u],a=o&&l[o])){if(a.events)for(r in a.events)p[r]?b.event.remove(n,r):b.removeEvent(n,r,a.handle);l[o]&&(delete l[o],d?delete n[u]:typeof n.removeAttribute!==i?n.removeAttribute(u):n[u]=null,c.push(o))}}});var Rt=/%20/g,Pt=/\[\]$/,$t=/\r?\n/g,It=/^(?:submit|button|image|reset|file)$/i,Wt=/^(?:input|select|textarea|keygen)/i;b.fn.extend({serialize:function(){return b.param(this.serializeArray())},serializeArray:function(){return this.map(function(){var e=b.prop(this,"elements");return e?b.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!b(this).is(":disabled")&&Wt.test(this.nodeName)&&!It.test(e)&&(this.checked||!wt.test(e))}).map(function(e,t){var n=b(this).val();return null==n?null:b.isArray(n)?b.map(n,function(e){return{name:t.name,value:e.replace($t,"\r\n")}}):{name:t.name,value:n.replace($t,"\r\n")}}).get()}}),b.param=function(e,n){var r,i=[],o=function(e,t){t=b.isFunction(t)?t():null==t?"":t,i[i.length]=encodeURIComponent(e)+"="+encodeURIComponent(t)};if(n===t&&(n=b.ajaxSettings&&b.ajaxSettings.traditional),b.isArray(e)||e.jquery&&!b.isPlainObject(e))b.each(e,function(){o(this.name,this.value)});else for(r in e)Xt(r,e[r],n,o);return i.join("&").replace(Rt,"+")};function Xt(e,t,n,r){var i;if(b.isArray(t))b.each(t,function(t,i){n||Pt.test(e)?r(e,i):Xt(e+"["+("object"==typeof i?t:"")+"]",i,n,r)});else if(n||"object"!==b.type(t))r(e,t);else for(i in t)Xt(e+"["+i+"]",t[i],n,r)}b.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "),function(e,t){b.fn[t]=function(e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}}),b.fn.hover=function(e,t){return this.mouseenter(e).mouseleave(t||e)};var zt,Ut,Vt=b.now(),Jt=/\?/,Qt=/#.*$/,Gt=/([?&])_=[^&]*/,Kt=/^(.*?):[ \t]*([^\r\n]*)\r?$/gm,Yt=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Zt=/^(?:GET|HEAD)$/,en=/^\/\//,tn=/^([\w.+-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/,nn=b.fn.load,rn={},on={},an="*/".concat("*");try{Ut=a.href}catch(sn){Ut=o.createElement("a"),Ut.href="",Ut=Ut.href}zt=tn.exec(Ut.toLowerCase())||[];function un(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(T)||[];if(b.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function ln(e,n,r,i){var o={},a=e===on;function s(u){var l;return o[u]=!0,b.each(e[u]||[],function(e,u){var c=u(n,r,i);return"string"!=typeof c||a||o[c]?a?!(l=c):t:(n.dataTypes.unshift(c),s(c),!1)}),l}return s(n.dataTypes[0])||!o["*"]&&s("*")}function cn(e,n){var r,i,o=b.ajaxSettings.flatOptions||{};for(i in n)n[i]!==t&&((o[i]?e:r||(r={}))[i]=n[i]);return r&&b.extend(!0,e,r),e}b.fn.load=function(e,n,r){if("string"!=typeof e&&nn)return nn.apply(this,arguments);var i,o,a,s=this,u=e.indexOf(" ");return u>=0&&(i=e.slice(u,e.length),e=e.slice(0,u)),b.isFunction(n)?(r=n,n=t):n&&"object"==typeof n&&(a="POST"),s.length>0&&b.ajax({url:e,type:a,dataType:"html",data:n}).done(function(e){o=arguments,s.html(i?b("<div>").append(b.parseHTML(e)).find(i):e)}).complete(r&&function(e,t){s.each(r,o||[e.responseText,t,e])}),this},b.each(["ajaxStart","ajaxStop","ajaxComplete","ajaxError","ajaxSuccess","ajaxSend"],function(e,t){b.fn[t]=function(e){return this.on(t,e)}}),b.each(["get","post"],function(e,n){b[n]=function(e,r,i,o){return b.isFunction(r)&&(o=o||i,i=r,r=t),b.ajax({url:e,type:n,dataType:o,data:r,success:i})}}),b.extend({active:0,lastModified:{},etag:{},ajaxSettings:{url:Ut,type:"GET",isLocal:Yt.test(zt[1]),global:!0,processData:!0,async:!0,contentType:"application/x-www-form-urlencoded; charset=UTF-8",accepts:{"*":an,text:"text/plain",html:"text/html",xml:"application/xml, text/xml",json:"application/json, text/javascript"},contents:{xml:/xml/,html:/html/,json:/json/},responseFields:{xml:"responseXML",text:"responseText"},converters:{"* text":e.String,"text html":!0,"text json":b.parseJSON,"text xml":b.parseXML},flatOptions:{url:!0,context:!0}},ajaxSetup:function(e,t){return t?cn(cn(e,b.ajaxSettings),t):cn(b.ajaxSettings,e)},ajaxPrefilter:un(rn),ajaxTransport:un(on),ajax:function(e,n){"object"==typeof e&&(n=e,e=t),n=n||{};var r,i,o,a,s,u,l,c,d=b.ajaxSetup({},n),p=d.context||d,f=d.context&&(p.nodeType||p.jquery)?b(p):b.event,h=b.Deferred(),g=b.Callbacks("once memory"),m=d.statusCode||{},y={},v={},x=0,N="canceled",w={readyState:0,getResponseHeader:function(e){var t;if(2===x){if(!c){c={};while(t=Kt.exec(a))c[t[1].toLowerCase()]=t[2]}t=c[e.toLowerCase()]}return null==t?null:t},getAllResponseHeaders:function(){return 2===x?a:null},setRequestHeader:function(e,t){var n=e.toLowerCase();return x||(e=v[n]=v[n]||e,y[e]=t),this},overrideMimeType:function(e){return x||(d.mimeType=e),this},statusCode:function(e){var t;if(e)if(2>x)for(t in e)m[t]=[m[t],e[t]];else w.always(e[w.status]);return this},abort:function(e){var t=e||N;return l&&l.abort(t),E(0,t),this}};if(h.promise(w).complete=g.add,w.success=w.done,w.error=w.fail,d.url=((e||d.url||Ut)+"").replace(Qt,"").replace(en,zt[1]+"//"),d.type=n.method||n.type||d.method||d.type,d.dataTypes=b.trim(d.dataType||"*").toLowerCase().match(T)||[""],null==d.crossDomain&&(r=tn.exec(d.url.toLowerCase()),d.crossDomain=!(!r||r[1]===zt[1]&&r[2]===zt[2]&&(r[3]||("http:"===r[1]?80:443))==(zt[3]||("http:"===zt[1]?80:443)))),d.data&&d.processData&&"string"!=typeof d.data&&(d.data=b.param(d.data,d.traditional)),ln(rn,d,n,w),2===x)return w;u=d.global,u&&0===b.active++&&b.event.trigger("ajaxStart"),d.type=d.type.toUpperCase(),d.hasContent=!Zt.test(d.type),o=d.url,d.hasContent||(d.data&&(o=d.url+=(Jt.test(o)?"&":"?")+d.data,delete d.data),d.cache===!1&&(d.url=Gt.test(o)?o.replace(Gt,"$1_="+Vt++):o+(Jt.test(o)?"&":"?")+"_="+Vt++)),d.ifModified&&(b.lastModified[o]&&w.setRequestHeader("If-Modified-Since",b.lastModified[o]),b.etag[o]&&w.setRequestHeader("If-None-Match",b.etag[o])),(d.data&&d.hasContent&&d.contentType!==!1||n.contentType)&&w.setRequestHeader("Content-Type",d.contentType),w.setRequestHeader("Accept",d.dataTypes[0]&&d.accepts[d.dataTypes[0]]?d.accepts[d.dataTypes[0]]+("*"!==d.dataTypes[0]?", "+an+"; q=0.01":""):d.accepts["*"]);for(i in d.headers)w.setRequestHeader(i,d.headers[i]);if(d.beforeSend&&(d.beforeSend.call(p,w,d)===!1||2===x))return w.abort();N="abort";for(i in{success:1,error:1,complete:1})w[i](d[i]);if(l=ln(on,d,n,w)){w.readyState=1,u&&f.trigger("ajaxSend",[w,d]),d.async&&d.timeout>0&&(s=setTimeout(function(){w.abort("timeout")},d.timeout));try{x=1,l.send(y,E)}catch(C){if(!(2>x))throw C;E(-1,C)}}else E(-1,"No Transport");function E(e,n,r,i){var c,y,v,T,N,C=n;2!==x&&(x=2,s&&clearTimeout(s),l=t,a=i||"",w.readyState=e>0?4:0,r&&(T=dn(d,w,r)),e>=200&&300>e||304===e?(d.ifModified&&(N=w.getResponseHeader("Last-Modified"),N&&(b.lastModified[o]=N),N=w.getResponseHeader("etag"),N&&(b.etag[o]=N)),204===e?(c=!0,C="nocontent"):304===e?(c=!0,C="notmodified"):(c=pn(d,T),C=c.state,y=c.data,v=c.error,c=!v)):(v=C,(e||!C)&&(C="error",0>e&&(e=0))),w.status=e,w.statusText=(n||C)+"",c?h.resolveWith(p,[y,C,w]):h.rejectWith(p,[w,C,v]),w.statusCode(m),m=t,u&&f.trigger(c?"ajaxSuccess":"ajaxError",[w,d,c?y:v]),g.fireWith(p,[w,C]),u&&(f.trigger("ajaxComplete",[w,d]),--b.active||b.event.trigger("ajaxStop")))}return w},getScript:function(e,n){return b.get(e,t,n,"script")},getJSON:function(e,t,n){return b.get(e,t,n,"json")}});function dn(e,n,r){var i,o,a,s,u=e.contents,l=e.dataTypes,c=e.responseFields;for(s in c)s in r&&(n[c[s]]=r[s]);while("*"===l[0])l.shift(),o===t&&(o=e.mimeType||n.getResponseHeader("Content-Type"));if(o)for(s in u)if(u[s]&&u[s].test(o)){l.unshift(s);break}if(l[0]in r)a=l[0];else{for(s in r){if(!l[0]||e.converters[s+" "+l[0]]){a=s;break}i||(i=s)}a=a||i}return a?(a!==l[0]&&l.unshift(a),r[a]):t}function pn(e,t){var n,r,i,o,a={},s=0,u=e.dataTypes.slice(),l=u[0];if(e.dataFilter&&(t=e.dataFilter(t,e.dataType)),u[1])for(i in e.converters)a[i.toLowerCase()]=e.converters[i];for(;r=u[++s];)if("*"!==r){if("*"!==l&&l!==r){if(i=a[l+" "+r]||a["* "+r],!i)for(n in a)if(o=n.split(" "),o[1]===r&&(i=a[l+" "+o[0]]||a["* "+o[0]])){i===!0?i=a[n]:a[n]!==!0&&(r=o[0],u.splice(s--,0,r));break}if(i!==!0)if(i&&e["throws"])t=i(t);else try{t=i(t)}catch(c){return{state:"parsererror",error:i?c:"No conversion from "+l+" to "+r}}}l=r}return{state:"success",data:t}}var fn,hn,gn=0,mn=e.ActiveXObject&&function(){var e;for(e in fn)fn[e](t,!0)};function yn(){try{return new e.XMLHttpRequest}catch(t){}}function vn(){try{return new e.ActiveXObject("Microsoft.XMLHTTP")}catch(t){}}b.ajaxSettings.xhr=e.ActiveXObject?function(){return!this.isLocal&&yn()||vn()}:yn,hn=b.ajaxSettings.xhr(),b.support.cors=!!hn&&"withCredentials"in hn,hn=b.support.ajax=!!hn,hn&&b.ajaxTransport(function(n){if(!n.crossDomain||b.support.cors){var r;return{send:function(i,o){var a,s,u=n.xhr();if(n.username?u.open(n.type,n.url,n.async,n.username,n.password):u.open(n.type,n.url,n.async),n.xhrFields)for(s in n.xhrFields)u[s]=n.xhrFields[s];n.mimeType&&u.overrideMimeType&&u.overrideMimeType(n.mimeType),n.crossDomain||i["X-Requested-With"]||(i["X-Requested-With"]="XMLHttpRequest");try{for(s in i)u.setRequestHeader(s,i[s])}catch(l){}u.send(n.hasContent&&n.data||null),r=function(e,i){var s,l,c,d;try{if(r&&(i||4===u.readyState))if(r=t,a&&(u.onreadystatechange=b.noop,mn&&delete fn[a]),i)4!==u.readyState&&u.abort();else{d={},s=u.status,l=u.getAllResponseHeaders(),"string"==typeof u.responseText&&(d.text=u.responseText);try{c=u.statusText}catch(p){c=""}s||!n.isLocal||n.crossDomain?1223===s&&(s=204):s=d.text?200:404}}catch(f){i||o(-1,f)}d&&o(s,c,d,l)},n.async?4===u.readyState?setTimeout(r):(a=++gn,mn&&(fn||(fn={},b(e).unload(mn)),fn[a]=r),u.onreadystatechange=r):r()},abort:function(){r&&r(t,!0)}}}}),e.jQuery=e.$=b,"function"==typeof define&&define.amd&&define.amd.jQuery&&define("jquery",[],function(){return b})})(window);
 
 (function(){
-  var Txt = window.Textual,
-      api = 'https://grove.io/api/',
-      users = {},
-      channelName,
-      organizationID,
-      channelID;
 
   // -----------------------
   // Textual event handlers
   // -----------------------
 
-  Txt.viewFinishedLoading = function() {
-    Txt.fadeInLoadingScreen(1.00, 0.95);
+  Textual.viewBodyDidLoad = function(){
+    Textual.fadeOutLoadingScreen(1.00, 0.95);
 
     setTimeout(function() {
-      Txt.scrollToBottomOfView();
+      Textual.scrollToBottomOfView();
     }, 500);
   };
+  
 
-  Txt.viewFinishedReload = function() {
-    Txt.viewFinishedLoading();
+  Textual.viewFinishedReload = function() {
+    Textual.viewFinishedLoading();
   };
-
-  Txt.viewInitiated = function(viewType, serverHash, channelHash, channelID) {
-    channelName = channelID;
-    initUsers();
-    // Insert avatars that are in localStorage
-    insertAvatars();
-    // Start the API requests and then do another round of avatar insertion
-    bootstrap().then(insertAvatars);
-  };
-
-  Txt.newMessagePostedToView = function(lineNumber) {
-    var $line = $('#line' + lineNumber),
-        user = users[$line.attr('nick')];
-
-    if (user) { return insertAvatars(); }
-    getUsers().then(insertAvatars);
-  };
-
-  // -----------------------
-  // Grove.io API functions
-  // -----------------------
-
-  // Get auth data and store organization ID
-  function getAuth() {
-    return $.get(api + 'auth').then(function(data) {
-      organizationID = data.organizations[0].id;
-    });
-  }
-
-  // Get organization data and get the correct channel ID from it
-  function getOrganization() {
-    if (!organizationID) { throw('No organizationID'); }
-
-    return $.get(api + 'organizations/' + organizationID).then(function(data) {
-      // TODO: this is brittle, just looks for first channel. It should get the
-      // current channel but that dies for 1-1 chats.
-      // https://grove.io/help/api#private-channel
-
-      // channelID = data.channels.filter(function(channel) {
-      //   return channelName = channel.name;
-      // })[0];
-      channelID = data.channels[0].id;
-    });
-  }
-
-  // Get all users in this channel and store details for later
-  function getUsers() {
-    if (!channelID) { throw('No channelID'); }
-    return $.get(api + 'channels/' + channelID + '/users').then(function(data) {
-      data.forEach(registerUser);
-    });
-  }
-
-  // -----------------------
-  // Avatars
-  // -----------------------
-
-  function insertAvatars() {
-    for (var username in users) {
-      if (users.hasOwnProperty(username)) {
-        $('.line[nick=' + username + ']').each(function(i, el) {
-          insertAvatar(el, users[username]);
-        });
-      }
-    }
-  }
-
-  function insertAvatar(el, user) {
-    if (!user) { return; }
-    var src = user.userpics.size_28,
-        $img = $(el).find('.avatar');
-
-    // Don't re-replace avatars that are already correct
-    if ($img.attr('src') === src) { return; }
-    $img.attr('src', src);
-  }
-
-  // -----------------------
-  // Application
-  // -----------------------
-
-  function bootstrap() {
-    return getAuth().then(getOrganization).then(getUsers);
-  }
-
-  // Pull users from localStorage on init
-  function initUsers() {
-    users = JSON.parse(localStorage.getItem('txt:users')) || {};
-  }
-
-  function persistUsers() {
-    localStorage.setItem('txt:users', JSON.stringify(users));
-  }
-
-  // Add a user to the global register
-  function registerUser(user) {
-   if (!users[user.username]) { users[user.username] = user; }
-   persistUsers();
-  }
 
 })();
