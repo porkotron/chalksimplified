@@ -13,7 +13,7 @@
 {{^isRemoteMessage}}
 	<p type="{{nicknameType}}">
 {{/isRemoteMessage}}
-	<table width="100%">
+	<table style="width: 100%">
 	<tr>
 			<td valign="top" width="1" style="white-space: nowrap;">
 			<span class="sender"
@@ -27,7 +27,7 @@
 			</td>
 			<td align="left">
 				<span class="time">{{formattedTimestamp}} </span>
-				{{{formattedMessage}}}
+				<span style="word-break:break-all;">{{{formattedMessage}}}</span>
 			</td>
 		</span>
 	</tr>
