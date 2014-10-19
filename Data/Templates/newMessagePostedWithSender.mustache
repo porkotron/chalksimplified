@@ -5,7 +5,6 @@
 		nick="{{nickname}}">
 {{#nickname}}
 {{/nickname}}
-
 {{#isRemoteMessage}}
 	<p>
 {{/isRemoteMessage}}
@@ -13,33 +12,32 @@
 {{^isRemoteMessage}}
 	<p type="{{nicknameType}}">
 {{/isRemoteMessage}}
-	<table style="width: 100%">
-	<tr>
-			<td valign="top" width="1" style="white-space: nowrap;">
+	<table style="width: 98%; word-wrap:break-word; table-layout: fixed;">
+		<tr>
+			<td align="left" width="1" style="white-space: nowrap;">
 			<span class="sender"
 				type="{{nicknameType}}"
 				nick="{{nickname}}"
 				{{#nicknameColorHashingEnabled}}
 					colornumber="{{nicknameColorNumber}}"
 				{{/nicknameColorHashingEnabled}}>
-				{{formattedNickname}}
+				{{nickname}}
+			</span>
+			<span class="time">{{formattedTimestamp}} </span>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+			<span class="bubble">
+				{{{formattedMessage}}}
+				{{#inlineMediaAvailable}}
+					{{#inlineMediaArray}}
+						<a href="{{{anchorLink}}}"><img src="{{{imageURL}}}" class="inlineimage" style="max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
+					{{/inlineMediaArray}}
+				{{/inlineMediaAvailable}}
 			</span>
 			</td>
-			<td align="left">
-				<span class="time">{{formattedTimestamp}} </span>
-				<span style="word-break:keep-all;">{{{formattedMessage}}}</span>
-			</td>
-		</span>
-	</tr>
-	<tr>
-			<td colspan="2" valign="top" align="center">
-					{{#inlineMediaAvailable}}
-						{{#inlineMediaArray}}
-							<a href="{{{anchorLink}}}"><img src="{{{imageURL}}}" class="inlineimage" style="max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
-						{{/inlineMediaArray}}
-					{{/inlineMediaAvailable}}
-			</td>
-	</tr>
+		</tr>
 	</table>
 	</p>
 </div>
