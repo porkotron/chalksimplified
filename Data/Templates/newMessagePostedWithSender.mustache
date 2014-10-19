@@ -12,8 +12,9 @@
 {{^isRemoteMessage}}
 	<p type="{{nicknameType}}">
 {{/isRemoteMessage}}
-	<table style="width: 98%; word-wrap:break-word; table-layout: fixed;">
-		<tr>
+	<table id="messagetable" style="width: 98%; word-wrap:break-word; table-layout: fixed;">
+		<tbody id="messagetablebody">
+		<tr id="senderrow">
 			<td align="left" width="1" style="white-space: nowrap;">
 			<span class="sender"
 				type="{{nicknameType}}"
@@ -23,7 +24,6 @@
 				{{/nicknameColorHashingEnabled}}>
 				{{nickname}}
 			</span>
-			<span class="time">{{formattedTimestamp}} </span>
 			</td>
 		</tr>
 		<tr>
@@ -36,8 +36,10 @@
 					{{/inlineMediaArray}}
 				{{/inlineMediaAvailable}}
 			</span>
+			<span class="time">{{formattedTimestamp}}</span>				
 			</td>
 		</tr>
+		</tbody>
 	</table>
 	</p>
 </div>

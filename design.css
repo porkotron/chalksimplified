@@ -74,6 +74,11 @@ body div#loading_screen {
 
 /* @group Time */
 
+
+body div[type*=privmsg] p[type*=myself] .time {
+	float: left;
+}
+
 body[dir=ltr] .time {
 	width: auto;
 	color: #aaa;
@@ -194,7 +199,7 @@ body div.line[type*=privmsg][highlight=false] p,
 body div.line[type*=privmsg][highlight=true] p,
 body div.line[type*=action][highlight=true] p,
 body div.line[type*=action] p {
- 	padding: 6px;
+ 	/*padding: 6px;*/
  	margin-left: 10px !important;
  	text-indent: 0 !important;
 }
@@ -219,6 +224,7 @@ body div[type*=privmsg] p[type*=myself] .message {
 
 body div[type*=privmsg] .sender {
 	float: left;
+	margin-top: 5px;
 	margin-left: 1px;
 	font-weight: 700;
 }
@@ -227,7 +233,7 @@ body div[type*=privmsg] .bubble {
   box-sizing: border-box;
   float: left;
   width: auto;
-  max-width: 99%;
+  max-width: 80%;
   position: relative;
   clear: both;
 
@@ -274,7 +280,7 @@ body div[type*=privmsg] p[type*=myself] .bubble {
   box-sizing: border-box;
   float: right;
   width: auto;
-  max-width: 99%;
+  max-width: 80%;
   position: relative;
   clear: both;
 
@@ -357,8 +363,8 @@ body div.line[type*=nick],
 body div.line[type*=mode],
 body div.line[type*=topic],
 body div.line[type*=website] {
- 	margin: 0 10px;
- 	padding: 3px 6px;
+ 	margin: 5 10px;
+/* 	padding: 3px 6px;*/
  	position: relative;
  	min-height: 26px;
 	text-shadow: 0 1px #fff;
