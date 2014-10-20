@@ -4,5 +4,5 @@ Bubble CSS by [Jake Rocheleau] (http://blog.templatemonster.com/2014/05/26/chat-
 
 Install:
 ```
-$ git clone -b bubbles --single-branch https://github.com/porkotron/chalksimplified.git "~/Library/Group Containers/8482Q6EPL6.com.codeux.irc.textual/Library/Application Support/Textual/Styles/Chalksimplified"
+$ git clone -b bubbles --single-branch https://github.com/porkotron/chalksimplified.git "~/Library/Group Containers/8482Q6EPL6.com.codeux.irc.textual/Library/Application Support/Textual/Styles/Chalkbubbles"
 ```
