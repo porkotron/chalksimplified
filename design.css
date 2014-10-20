@@ -77,6 +77,7 @@ body div#loading_screen {
 
 body div[type*=privmsg] p[type*=myself] .time {
 	float: left;
+	text-align: left;
 }
 
 body[dir=ltr] .time {
@@ -222,6 +223,10 @@ body div[type*=privmsg] p[type*=myself] .message {
 	color: #000;
 }
 
+body div[type*=privmsg] p[type*=myself] .sender {
+	float: right;
+}
+
 body div[type*=privmsg] .sender {
 	float: left;
 	margin-top: 5px;
@@ -233,7 +238,7 @@ body div[type*=privmsg] .bubble {
   box-sizing: border-box;
   float: left;
   width: auto;
-  max-width: 80%;
+  max-width: 75%;
   position: relative;
   clear: both;
 
@@ -280,7 +285,7 @@ body div[type*=privmsg] p[type*=myself] .bubble {
   box-sizing: border-box;
   float: right;
   width: auto;
-  max-width: 80%;
+  max-width: 75%;
   position: relative;
   clear: both;
 
@@ -312,7 +317,8 @@ body div[type*=privmsg] p[type*=myself] .bubble:before {
   border: 10px solid transparent;
   border-top-color: rgba(0,0,0,0.5);
   top: 0px;
-  left: -7px;
+  left: auto;
+  right: -7px;
   z-index: -2;
 }
 
@@ -320,7 +326,8 @@ body div[type*=privmsg] p[type*=myself] .bubble:after {
   border: 8px solid transparent;
   border-top-color: #FFFCF4; /* arrow color */
   top: 1px;
-  left: -5px;
+  left: auto;
+  right: -5px;
 }
 
 
