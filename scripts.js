@@ -33,13 +33,13 @@ return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.origType,n=o.handler.apply(this,a
   Textual.newMessagePostedToView = function(line) {
     var element = getLineEl(line);
     if(element){
-      updateNicknameAssociatedWithNewMessage(element);
+      ConversationTracking.updateNicknameAssociatedWithNewMessage(element);
     }
   }
 
   function getLineEl(lineNum) {
      if (typeof lineNum === 'string') {
-         return document.getElementById('line' + lineNum);
+         return document.getElementById('line-' + lineNum);
      }
      if (lineNum && lineNum.classList && lineNum.classList.contains('line')) {
          return lineNum;
@@ -63,23 +63,26 @@ return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.origType,n=o.handler.apply(this,a
    }
 
   function updateNicknameAssociatedWithNewMessage(e) {
-    	var elementType = e.getAttribute("type");    	
-    var channel = app.channelName();
-    	if (elementType == "privmsg") {
-    	  var nick = e.getAttribute("nick");
-    	  if(lastChannelMessageNick[channel] == nick){
-        var table = getTableBodyEl(e);
-        var row = getRowEl(e);
-        if(table&&row){
-          table.removeChild(row);
-        }
-    	  }
-      lastChannelMessageNick[channel] = nick;
-    	}else {
-      	if(channel){
-        lastChannelMessageNick[channel] = '';      	
-      }
-    	}
+    	var elementType = e.getAttribute("type");
+    	app.channelName(
+    	    function(channel) {    	
+		    	if (elementType == "privmsg") {
+		    	  var nick = e.getAttribute("nick");
+		    	  if(lastChannelMessageNick[channel] == nick){
+			        var table = getTableBodyEl(e);
+		    	    var row = getRowEl(e);
+		        	if(table&&row){
+		          		table.removeChild(row);
+		        	}
+		    	  }
+		      	  lastChannelMessageNick[channel] = nick;
+		    	}else {
+		      		if(channel){
+		        		lastChannelMessageNick[channel] = '';
+		      		}
+		    	}
+			}
+		);  
   }
 
 })();

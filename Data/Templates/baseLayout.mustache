@@ -9,13 +9,16 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		
-		<link rel="stylesheet" type="text/css" href="{{activeStyleAbsolutePath}}/design.css?u={{cacheToken}}">
+		<link rel="stylesheet" type="text/css" href="{{activeStyleAbsolutePath}}/design.css?{{cacheToken}}" charset="UTF-8">
 		
-		<script src="{{applicationResourcePath}}/JavaScript/API/core.js" type="text/javascript"></script>
-		<script src="{{applicationResourcePath}}/JavaScript/API/corePrivate.js" type="text/javascript"></script>
-		<script src="{{applicationResourcePath}}/JavaScript/API/liveresize.js" type="text/javascript"></script>
-		<script src="{{activeStyleAbsolutePath}}scripts.js?u={{cacheToken}}" type="text/javascript"></script>
-		
+		<script src="{{applicationResourcePath}}/JavaScript/API/core.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="{{applicationResourcePath}}/JavaScript/API/corePrivate.js" type="text/javascript" charset="UTF-8"></script>
+
+		<script type="text/javascript">
+			Textual.initializeCore("{{applicationResourcePath}}");
+		</script>
+
+		<script src="{{activeStyleAbsolutePath}}/scripts.js?{{cacheToken}}" type="text/javascript" charset="UTF-8"></script>
 		<style type="text/css">
 			html, body, body[type], body {
 				font-family: '{{userConfiguredFontName}}';
@@ -41,8 +44,10 @@
 		</style>
 	</head>
 	
-	<body type="{{viewTypeToken}}"  onload="Textual.viewBodyDidLoad()"
-
+	<body type="{{viewTypeToken}}"  onload="Textual.viewBodyDidLoadInt()"
+		{{#usesCustomScrollers}}
+			customscroller="true"
+		{{/usesCustomScrollers}}
 
 		{{#isChannelView}}
 			channelname="{{channelName}}" 
